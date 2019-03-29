@@ -3,6 +3,9 @@ package pkgGame;
 import pkgEnum.ePuzzleViolation;
 import pkgHelper.LatinSquare;
 import pkgHelper.PuzzleViolation;
+import java.security.SecureRandom;
+import java.util.Arrays;
+import java.util.Random;
 
 /**
  * Sudoku - This class extends LatinSquare, adding methods, constructor to
@@ -282,6 +285,33 @@ public class Sudoku extends LatinSquare {
 			for (b = (r % iSqrtSize) * iSqrtSize; b < bMax; b++) {
 				super.setLatinSquare(a, b);
 				iCnt++;
+			}
+		}
+	}
+	
+	public void shuffleArray(int[] arr) 
+	{
+		Random rNbr = new SecureRandom();
+		for 
+		(int i = arr.length - 1; i > 0; i--) 
+		{
+			int ind = rNbr.nextInt(i + 1);
+			int a = arr[ind];
+			arr[ind] = arr[i];
+			arr[i] = a;
+}
+		}
+	public void shuffleRegion(int arr) {
+		int[] reg = getRegion(arr);
+		shuffleArray(reg);
+		int iC = 0;
+		
+		for 
+		(int i = (arr / iSqrtSize) * iSqrtSize; i < ((arr / iSqrtSize) * iSqrtSize) + iSqrtSize; i++) 
+		{
+			for (int k = (arr % iSqrtSize) * iSqrtSize; k < ((arr % iSqrtSize) * iSqrtSize) + iSqrtSize; k++) 
+			{
+				this.getPuzzle()[i][k] = reg[iC++];
 			}
 		}
 	}
