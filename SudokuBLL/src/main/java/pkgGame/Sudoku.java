@@ -280,8 +280,7 @@ public class Sudoku extends LatinSquare {
 
 		for (; a < aMax; a++) {
 			for (b = (r % iSqrtSize) * iSqrtSize; b < bMax; b++) {
-				super.setLatinSquare(a, b);
-				iCnt++;
+				this.getPuzzle()[a][b] = iCnt++;
 			}
 		}
 	}
