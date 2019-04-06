@@ -258,5 +258,47 @@ public class SudokuTest {
 		assertTrue(Arrays.equals(Region5, s1.getRegion(5)));
 		
 	}
-	
+	@Test
+	public void TestSetRegion() throws Exception {
+		Sudoku s = null;
+		int[][] puzzle = { 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 } };
+		int[][] Filledpuzzle = { 
+				{ 1, 2, 0, 0, 0, 0, 0, 0, 0 }, 
+				{ 3, 4, 0, 0, 0, 0, 0, 0, 0 }, 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0 } };
+		
+		s = new Sudoku(puzzle);
+		s.setRegion(2);
+		
+		assertFalse(Arrays.equals(puzzle, Filledpuzzle));
+	}
+	@Test
+	public void TestFillDiagonalRegion() throws Exception {
+		int[][] puzzle = {{0, 0, 0 ,0},
+				{0, 0, 0 ,0},
+				{0, 0, 0 ,0},
+				{0, 0, 0 ,0} };
+		int[][] otherpuzzle = {{0, 0, 0 ,0},
+				{0, 0, 0 ,0},
+				{0, 0, 0 ,0},
+				{0, 0, 0 ,0} };
+		Sudoku s = new Sudoku(puzzle);
+		s.FillDiagonalRegions();
+		assertFalse(Arrays.equals(puzzle, otherpuzzle));
+	}
 }

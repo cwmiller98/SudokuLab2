@@ -314,4 +314,10 @@ public class Sudoku extends LatinSquare {
 			}
 		}
 	}
-}
+	public void FillDiagonalRegions() {
+		for (int i =0; i < iSize; i += iSqrtSize + 1) {
+			setRegion(i);
+			shuffleRegion(i);
+		}
+		}
+	}
