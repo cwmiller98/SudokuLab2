@@ -326,5 +326,9 @@ public class Sudoku extends LatinSquare {
 			System.out.println(Arrays.toString(getRow(i)));
 		}
 	}
+	public int getRegionNbr(int col, int row) 
+	{
+		return (col / iSqrtSize) + ((row / iSqrtSize) * iSqrtSize);
+	}
 	
 	}
