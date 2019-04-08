@@ -320,4 +320,9 @@ public class Sudoku extends LatinSquare {
 			shuffleRegion(i);
 		}
 		}
+	public void PrintPuzzle() {
+		for(int i = 0; i < iSize; i++) {
+			System.out.println(Arrays.toString(getRow(i)));
+		}
+	}
 	}
