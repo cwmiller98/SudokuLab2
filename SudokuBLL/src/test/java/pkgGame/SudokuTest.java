@@ -309,7 +309,7 @@ public class SudokuTest {
 }
 	private void PrintStars() 
 	{
-		for (int j = 0; j < 50; j++)
+		for (int j = 0; j < 10; j++)
 			
 		System.out.print("*");
 		System.out.println();
