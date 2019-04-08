@@ -325,4 +325,5 @@ public class Sudoku extends LatinSquare {
 			System.out.println(Arrays.toString(getRow(i)));
 		}
 	}
+	
 	}
