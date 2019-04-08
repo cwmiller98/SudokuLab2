@@ -305,4 +305,12 @@ public class SudokuTest {
 			s.shuffleRegion(1);
 			
 			assertFalse(Arrays.equals(testSetRegion, s.getRegion(1)));
-}}
+}
+	private void PrintStars() 
+	{
+		for (int j = 0; j < 50; j++)
+			
+		System.out.print("*");
+		System.out.println();
+	}
+}
