@@ -2,9 +2,13 @@ package pkgGame;
 
 import static org.junit.Assert.*;
 
+import java.security.SecureRandom;
 import java.util.Arrays;
+import java.util.Random;
 
 import org.junit.Test;
+
+import pkgGame.Sudoku;
 
 public class SudokuTest {
 /*
@@ -301,4 +305,43 @@ public class SudokuTest {
 		s.FillDiagonalRegions();
 		assertFalse(Arrays.equals(puzzle, otherpuzzle));
 	}
+	public void shuffleArray(int[] arr) 
+	{
+		Random rNbr = new SecureRandom();
+		for 
+		(int i = arr.length - 1; i > 0; i--) 
+		{
+			int ind = rNbr.nextInt(i + 1);
+			int a = arr[ind];
+			arr[ind] = arr[i];
+			arr[i] = a;
+			}
+	}
+	@Test	
+	public void shuffleArray_Test() throws Exception { 
+		int[] arr= {1,2,3,4,5,6,7,8,9};
+		shuffleArray(arr);
+		System.out.println(Arrays.toString(arr));
 }
+	@Test
+	public void shuffleRegion_Test() throws Exception
+	{
+		int[][] puzz = {{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+						{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+						{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+						{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+						{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+						{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+						{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+						{ 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+						{ 0, 0, 0, 0, 0, 0, 0, 0, 0 } };
+			Sudoku s = new Sudoku(puzz);
+			int [] testSetRegion = {1,2,3,4,5,6,7,8,9};
+			s.setRegion(0);
+			s.setRegion(1);
+			s.setRegion(5);
+			s.shuffleRegion(0);
+			s.shuffleRegion(1);
+			
+			assertFalse(Arrays.equals(testSetRegion, s.getRegion(1)));
+}}
